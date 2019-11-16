@@ -5,7 +5,7 @@ A tool that lets you search for GIFs using the GIPHY api. It then displays the r
 
 Demo
 ----
-![](demo.gif)
+![](demo2.gif)
 
 
 To improve:
