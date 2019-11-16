@@ -16,6 +16,10 @@ $input.on('keyup', function () {
 
 //on keydown, clear the countdown
 $input.on('keydown', function () {
+  const key = event.key; // const {key} = event; ES6+
+    if (key === "Backspace" || key === "Delete") {
+        document.getElementById("gifModalBody").innerHTML = "";
+    }
   clearTimeout(typingTimer);
 });
 
@@ -45,7 +49,7 @@ function searchGifs(){
           if (image_clicked){
             document.querySelector("img[data-image_number="+CSS.escape(image_clicked)+"]").style.border = 0;}
           image_clicked = img.getAttribute('data-image_number')
-          img.style.border = "4px solid #000";
+          img.style.border = "4px solid #0000ff";
           //console.log("you clicked the image with link ---> " + img.getAttribute('data-image_number'));
         });
         document.getElementById("gifModalBody").appendChild(img);
