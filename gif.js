@@ -32,7 +32,7 @@ function searchGifs(){
 
   // Open a new connection, using the GET request on the URL endpoint
   var query = document.getElementById("text").value //the user wants gifs for ...
-  request.open('GET', 'https://api.giphy.com/v1/gifs/search?api_key=ZsDhKYMNVtzRxcbGwrOBKhNElDE4ZRDv&q='+query+'&limit=25&offset='+image_counter+'&rating=G&lang=en', true)
+  request.open('GET', 'https://api.giphy.com/v1/gifs/search?api_key=ZsDhKYMNVtzRxcbGwrOBKhNElDE4ZRDv&q='+query+'&limit=20&offset='+image_counter+'&rating=G&lang=en', true)
 
   request.onload = function() {
     // Begin accessing JSON data here
@@ -46,6 +46,19 @@ function searchGifs(){
 // Send request
 request.send()
 };
+
+
+
+
+function scrolling(){
+  var bod = document.getElementById("gifModalBody")
+  var scrollY = bod.scrollHeight - bod.scrollTop;
+  var height = bod.offsetHeight;
+  var offset = height - scrollY;
+  if (offset == 0 || offset == 1) {
+      searchGifs();
+  };
+}
 
 
 function loadImages(data){
